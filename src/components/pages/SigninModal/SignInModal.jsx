@@ -1,5 +1,5 @@
 import React from "react";
-import Modal from "../../ui/Modal/Modal";
+import Modal from "../../Modal/Modal";
 import useForm from "../../../hooks/useForm";
 
 /**

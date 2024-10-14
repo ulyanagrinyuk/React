@@ -1,4 +1,5 @@
-import React from "react";
+//import React from "react";
+import React, { useState, useEffect } from "react";
 import Card from "../components/Card/Card";
 import { data } from "../../data";
 import { useNavigate } from "react-router-dom";
