@@ -1,35 +1,48 @@
-//import React from "react";
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import Card from "../components/Card/Card";
-import { data } from "../../data";
 import { useNavigate } from "react-router-dom";
+import useProducts from "../store/useProducts";
+import { useAuth } from "../hooks/useAuth";
+import RenderList from "../utils/renderList";
 
 const Cards = () => {
+  // Достаем из стора продукты и метод получения данных
+  const { products } = useProducts();
+
+  // Достаем пользователя из кастомного хука
+  const { user } = useAuth();
+
+  // Фильтрация товаров по userId
+  const filteredProducts = products?.filter(product => product?.userId === user?.id);
+
+  // хук react-router-dom для навигации по страницам
   const navigate = useNavigate();
 
   /**
    * Обработчик клика по карточке.
-   * @param {object} data - Данные карточки.
+   * @param {object} cardData - Данные карточки.
    */
-  const handleClick = (data) => {
-    navigate(`/cards/${data?.alias}`, { state: data });
+  const handleClick = (cardData) => {
+    navigate(`/cards/${cardData?.alias}`, { state: cardData });
   };
 
   return (
     <main id="app" className="py-8">
       <div className="max-w-7xl mx-auto px-2">
-        <h3>Cards page</h3>
+        <h2 className="text-3xl font-bold">Cards page</h2>
         <div className="flex flex-wrap justify-between">
-          {data?.length > 0 &&
-            data?.map((productInfo) => {
-              return (
+          {filteredProducts && (
+            <RenderList
+              items={filteredProducts}
+              render={(productInfo) => (
                 <Card
-                  onCardClick={() => handleClick(productInfo)}
-                  key={productInfo?.id}
                   details={productInfo}
+                  onCardClick={() => handleClick(productInfo)}
                 />
-              );
-            })}
+              )}
+              emptyState={<p>No products found</p>}
+            />
+          )}
         </div>
       </div>
     </main>
