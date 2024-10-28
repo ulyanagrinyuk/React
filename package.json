@@ -30,5 +30,10 @@
     "postcss": "^8.4.47",
     "tailwindcss": "^3.4.13",
     "vite": "^5.4.6"
-  }
+  },
+  "description": "<div>   <h1>First React App</h1> </div>",
+  "main": "eslint.config.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }

@@ -279,29 +279,17 @@
   "items": [
     {
       "name": "Новый товар 1",
-      "category": "Категория 1",
-      "price": "23445",
+      "category": "children's furniture",
+      "price": "2344",
       "id": "8"
-    },
-    {
-      "name": "Новый товар 2",
-      "category": "Категория 2",
-      "price": "3333",
-      "id": "9"
     }
   ],
   "users": [
     {
-      "login": "admin",
+      "login": "user",
       "password": "12345678",
       "role": "admin",
       "id": "1"
-    },
-    {
-      "login": "user",
-      "password": "12345678",
-      "role": "user",
-      "id": "2"
     }
   ]
 }

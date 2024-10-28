@@ -21,7 +21,10 @@ const Card = (props) => {
   const { onCardClick } = props;
 
   return (
-    <div onClick={onCardClick} className="max-w-72 rounded-md overflow-hidden shadow-md hover:shadow-lg mb-6 cursor-pointer">
+    <div
+      onClick={onCardClick}
+      className="max-w-72 rounded-md overflow-hidden shadow-md hover:shadow-lg mb-6 cursor-pointer"
+    >
       <div className="relative">
         <Image
           className="w-full max-h-44"
@@ -36,7 +39,7 @@ const Card = (props) => {
           </div>
         )}
         <button
-          className={`absolute top-0 left-0 m-2 p-2 rounded-full z-0 ${
+          className={`absolute top-0 left-0 m-2 p-2 rounded-full ${
             isFavorite ? "text-indigo-500" : "text-white"
           }`}
         >
